@@ -11,5 +11,5 @@ $ git clone https://github.com/HerryLo/MongoDB_express.git
 
 $ npm install
 
-$ bpm run dev
+$ npm run dev
 ```
