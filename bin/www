@@ -1,43 +1,19 @@
 #!/usr/bin/env node
-<<<<<<< HEAD
 
-var app = require('../app');
-var debug = require('debug')('mongodb-express:server');
-var http = require('http');
-
-/**
- * Get port from environment and store in Express.
- */
-var port = normalizePort(process.env.PORT || '3222');
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-=======
 var app = require('../app');
 var debug = require('debug')('mongodb-express:server');
 var http = require('http');
 var dbConnect = require('../mongoose/dbConnect')
->>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 var server = http.createServer(app);
 var port = normalizePort(process.env.PORT || '3222');
 
-<<<<<<< HEAD
-=======
 dbConnect.connect();
 
 app.set('port', port);
->>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -55,17 +31,10 @@ function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-<<<<<<< HEAD
 
-  var bind = typeof port === 'string' ?
-    'Pipe ' + port :
-    'Port ' + port;
-=======
   var bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
->>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
-
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
