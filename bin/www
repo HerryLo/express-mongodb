@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+<<<<<<< HEAD
 
 var app = require('../app');
 var debug = require('debug')('mongodb-express:server');
@@ -13,40 +14,57 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
+=======
+var app = require('../app');
+var debug = require('debug')('mongodb-express:server');
+var http = require('http');
+var dbConnect = require('../mongoose/dbConnect')
+>>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 var server = http.createServer(app);
+var port = normalizePort(process.env.PORT || '3222');
 
+<<<<<<< HEAD
+=======
+dbConnect.connect();
+
+app.set('port', port);
+>>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
-
   if (port >= 0) {
-    // port number
     return port;
   }
 
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
+<<<<<<< HEAD
 
   var bind = typeof port === 'string' ?
     'Pipe ' + port :
     'Port ' + port;
+=======
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+>>>>>>> 53c7dd8b0ae09e75efa222069067cec68a094577
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -62,10 +80,6 @@ function onError(error) {
       throw error;
   }
 }
-
-/**
- * Event listener for HTTP server "listening" event.
- */
 
 function onListening() {
   var addr = server.address();
