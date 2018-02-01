@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var ArtcileListSchema = new Schema({
+const ArtcileListSchema = new Schema({
     title: String,
     content: String,
     time: String,
@@ -12,24 +12,14 @@ var ArtcileListSchema = new Schema({
     avatarImg: String
 })
 
-var artListModel = mongoose.model('artList', ArtcileListSchema);
-
-function artListFun(obj) {
-    if (typeof obj == 'object') {
-        var artList = new artListModel(obj);
-        artList.save(function () {
-            artListModel.find(function (error, result) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log(result); // result 为空
-                }
-            })
-        })
+ArtcileListSchema.static ({
+    findbytitle: function(obj, callback) {
+        if (typeof obj == 'object') {
+            return this.model('mongoose').find(obj, callback);
+        }
     }
-}
+})
 
-module.exports = {
-    artListModel: artListModel,
-    artListFun: artListFun
-}
+const artListModel = mongoose.model('artList', ArtcileListSchema);
+
+module.exports = artListModel
