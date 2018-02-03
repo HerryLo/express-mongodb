@@ -15,29 +15,42 @@ var data = {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+    artListFind(res);
+});
+
+router.post('/', function (req, res, next) {
+    artListCreate(res);
+})
+
+function artListCreate(res) {
+    var artList = new artListModel();
+    artListModel.create(data, function (error) {
+        if (error) {
+            console.log(error);
+            return true;
+        } else {
+            console.log('save ok');
+            artListFind(res)
+            return true;
+        }
+    });
+}
+
+function artListFind(res) {
     var artList = new artListModel();
     artListModel.find(function (error, result) {
         if (error) {
             console.log(error);
         } else {
-            console.log(result); // result 为空\
-            res.send({data: result, code: 0});
+            if(result.length > 0){
+                res.send({data: result, code: 0});
+                return true;
+            }else{
+                artListCreate(res);
+                return true;
+            }
         }
-        db.close();
-        next();
     })
-});
-
-router.post('/', function (req, res, next) {
-    var artList = new artListModel();
-    artListModel.create(data, function (error) {
-        if (error) {
-            console.log(error);
-        } else {
-            res.send('save ok');
-        }
-        db.close();
-    });
-})
+}
 
 module.exports = router;
