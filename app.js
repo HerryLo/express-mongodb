@@ -9,14 +9,16 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var movie = require('./routes/movie');
 var artList = require('./routes/article/artList');
+var fetchImg = require('./routes/fetchImg');
 
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(express.static('public'));
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -36,6 +38,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api/movie', movie);
 app.use('/api/artlist', artList);
+app.use('/api/fetchImg', fetchImg);
 
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

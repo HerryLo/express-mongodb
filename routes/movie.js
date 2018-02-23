@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-let Mock = require('mockjs')
+var Mock = require('mockjs');
 
 var Random = Mock.Random
-let color = Random.color()
-let word = Random.word(5)
+var color = Random.color()
+var word = Random.word(5)
 
-router.get('/', (req, res) => {
+router.get('/', function(req, res) {
     let data = Mock.mock({
       'm1|7': [{
         'id|+1': 1,
@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
       }],
       'success': '@integer(0, 1)'
     })
-    res.send(JSON.stringify(data, null, 4))
+    res.send(data)
   })
 
   module.exports = router;
