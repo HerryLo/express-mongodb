@@ -12,13 +12,9 @@ const ArtcileListSchema = new Schema({
     avatarImg: String
 })
 
-ArtcileListSchema.static ({
-    findbytitle: function(obj, callback) {
-        if (typeof obj == 'object') {
-            return this.model('mongoose').find(obj, callback);
-        }
-    }
-})
+ArtcileListSchema.statics.findbytitle = function(title, callback) {
+    return this.model('mongoose').find({title: title}, callback);
+}
 
 const artListModel = mongoose.model('artList', ArtcileListSchema);
 

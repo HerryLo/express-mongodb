@@ -7,7 +7,7 @@ var LoginSchema = new Schema({
     time: String
 })
 
-var LoginModel = mongoose.model('user', LoginSchema);
+var RegisterModel = mongoose.model('user', LoginSchema);
 
-module.exports = LoginModel
+module.exports = RegisterModel
 

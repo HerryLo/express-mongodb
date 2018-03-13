@@ -16,6 +16,7 @@ function connect() {
     });
     db.on('error', function () {
         console.log('db connection error:')
+        db.close();
     });
 }
 module.exports = {

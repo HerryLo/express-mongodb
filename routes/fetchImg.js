@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
     if (url) {
         utils.GetImg(url)
             .then(function (url) {
-                res.redirect('/img/'+url);
+                res.redirect('/img/' + url);
             });
     } else {
         res.send({data: "", code: 0});

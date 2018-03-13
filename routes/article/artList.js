@@ -38,6 +38,7 @@ function artListCreate(res) {
 
 function artListFind(res) {
     var artList = new artListModel();
+    console.log(artListModel.findbytitle, 123);
     artListModel.find(function (error, result) {
         if (error) {
             console.log(error);
