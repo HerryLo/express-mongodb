@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/* 模式 */
 const ArtcileListSchema = new Schema({
     title: String,
     content: String,
@@ -12,8 +13,15 @@ const ArtcileListSchema = new Schema({
     avatarImg: String
 })
 
-ArtcileListSchema.statics.findbytitle = function(title, callback) {
-    return this.model('mongoose').find({title: title}, callback);
+/* 查找 */
+ArtcileListSchema.statics.findbytitle = function (data) {
+    return new Promise((resolve, reject) => {
+        this.find(data, function (err, result) {
+            if (err) reject(err);
+            resolve(result);
+        });
+    })
+
 }
 
 const artListModel = mongoose.model('artList', ArtcileListSchema);

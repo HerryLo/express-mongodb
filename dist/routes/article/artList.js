@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var artListModel = require('../../model/artListModel.js');
 var router = express.Router();
@@ -14,41 +16,42 @@ var data = {
 };
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', function (req, res, next) {
     artListFind(res);
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', function (req, res, next) {
     artListCreate(res);
-})
+});
 
 function artListCreate(res) {
-    artListModel.create(data, (error) => {
+    artListModel.create(data, function (error) {
         if (error) {
             console.log(error);
             return true;
         } else {
             console.log('save ok');
-            artListFind(res)
+            artListFind(res);
             return true;
         }
     });
 }
 
 function artListFind(res) {
-    artListModel.find((error, result) => {
+    artListModel.find(function (error, result) {
         if (error) {
             console.log(error);
         } else {
             if (result.length > 0) {
-                res.send({data: result, code: 0});
+                res.send({ data: result, code: 0 });
                 return true;
             } else {
                 artListCreate(res);
                 return true;
             }
         }
-    })
+    });
 }
 
 module.exports = router;
+//# sourceMappingURL=artList.js.map

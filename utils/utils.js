@@ -8,8 +8,8 @@ const path = require('path');
  * @constructor
  */
 function GetImg(url) {
-    return new Promise(function(resolve, reject){
-        request.head(url, function (err, res, body) {
+    return new Promise((resolve, reject)=>{
+        request.head(url, (err, res, body)=> {
             if(err){
                 console.log(err);
             }else{

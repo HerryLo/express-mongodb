@@ -6,7 +6,7 @@ var Random = Mock.Random
 var color = Random.color()
 var word = Random.word(5)
 
-router.get('/', function(req, res) {
+router.get('/', (req, res)=> {
     let data = Mock.mock({
       'm1|7': [{
         'id|+1': 1,

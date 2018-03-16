@@ -1,12 +1,15 @@
-var user = 'liuheng';
-var password = 'kjD62ooD7EPYpKXN';
+export const dbUrl = 'mongodb://localhost/test'
 
-// const dbUrl = 
-// `mongodb://${user}:${password}@cluster0-shard-00-00-cii4w.mongodb.net:27017,
-// cluster0-shard-00-01-cii4w.mongodb.net:27017,
-// cluster0-shard-00-02-cii4w.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin`
+/* 数据请求基本格式 */
+export  const Sendformat = {
+    code : '',
+    desc : '',
+    data : []
+}
 
-const dbUrl = 'mongodb://localhost/test'
-module.exports = {
-    dbUrl: dbUrl
+/* 注册API提示 */
+export const Desregister = {
+    success: '注册成功',
+    exist: '用户名已存在',
+    hint: '请输入用户名或密码'
 }
