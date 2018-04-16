@@ -38,19 +38,9 @@ app.all('*', function (req, res, next) {
 });
 
 /* get cookies */
-/*app.use(function(req, res, next) {
-    // const Cookies = req.cookies;
-    // console.log(Cookies);
-    /!*if (Cookies.get('LHSesions')) {
-        req.sesions = Cookies.LHSesions
-    } else {*!/
-        // req.cookies('LHSesions', 'AIKMOSCINLIUCNLICUNBLSIC')
-    /!*}*!/
-    next();
-})*/
 
-app.use('/', index);
-app.use('/users', users);
+// app.use('/', index);
+// app.use('/users', users);
 app.use('/api/movie', movie);
 app.use('/api/artlist', artList);
 app.use('/api/fetchImg', fetchImg);
