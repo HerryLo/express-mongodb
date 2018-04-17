@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "supervisor ./bin/www",
-    "dist": "supervisor ./dist/bin/www"
+    "babelWatch": "babel src -d dist -w -s inline --ignore node_modules,dist &",
+    "dev": "supervisor ./dist/bin/www &"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
