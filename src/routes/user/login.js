@@ -18,19 +18,21 @@ router.get('/', (req, res, next) => {
     const user = req.query.user;
     const password = req.query.password;
     UserModel.findUser({
-        user: user
+        user: user,
+        password: password
     }).then(function (result) {
         const d = result[0];
         let obj = loginCheck(req.query, d);
         if (obj.code == 0) {
-            let ck = `${new Date().getTime()}&${user}`;
-            res.cookie("cookie", ck, {maxAge: 60 * 1000});
+            // let ck = `${new Date().getTime()}&${user}`;
+            // res.cookie("cookie", ck, {maxAge: 60 * 1000});
+            req.session.JSTOKEN = d._id;
+            console.log(user+':'+req.session[user], req.session);
             res.send({code: obj.code, desc: obj.desc, data:[]});
         } else {
             res.send({code: obj.code, desc: obj.desc, data: []});
         }
     })
-
 });
 
 module.exports = router;
