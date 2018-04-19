@@ -6,11 +6,10 @@ const {Sendformat} = require('../../utils/constant')
 const loginCheck = (query, d)=> {
     const user = query.user;
     const password = query.password;
-    if(!d) return false;
-    if(user != d.user || password != d.password){
-        return '用户名或密码错误'
+    if(!d || user != d.user || password != d.password){
+        return {code: 1, desc: '用户名或密码错误'}
     }else{
-        return '成功'
+        return {code: 0,desc: '成功'}
     }
 }
 
@@ -22,14 +21,14 @@ router.get('/', (req, res, next) => {
         user: user
     }).then(function (result) {
         const d = result[0];
-        let obj = {};
-        let desc = loginCheck(req.query, d);
-        if (d) {
-            res.send({code: 0, desc: desc, data:[]});
+        let obj = loginCheck(req.query, d);
+        if (obj.code == 0) {
+            let ck = `${new Date().getTime()}&${user}`;
+            res.cookie("cookie", ck, {maxAge: 60 * 1000});
+            res.send({code: obj.code, desc: obj.desc, data:[]});
         } else {
-            res.send({code: 1, desc: desc, data: data});
+            res.send({code: obj.code, desc: obj.desc, data: []});
         }
-
     })
 
 });
