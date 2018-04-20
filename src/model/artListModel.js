@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
 
-/* 模式 */
+const Schema = mongoose.Schema;
 const ArtcileListSchema = new Schema({
     title: String,
     content: String,
@@ -13,15 +12,17 @@ const ArtcileListSchema = new Schema({
     avatarImg: String
 })
 
-/* 查找 */
-ArtcileListSchema.statics.findbytitle = function (data) {
-    return new Promise((resolve, reject) => {
-        this.find(data, function (err, result) {
-            if (err) reject(err);
-            resolve(result);
-        });
-    })
-
+ArtcileListSchema.statics = {
+    /* 查找 */
+    async findArtList(data) {
+        const result = await this.find(data);
+        return result;
+    },
+    /* 创建 */
+    async createArtList(data) {
+        const result = await this.create(data);
+        return result;
+    }
 }
 
 const artListModel = mongoose.model('artList', ArtcileListSchema);

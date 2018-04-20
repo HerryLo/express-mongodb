@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var constant = require('../utils/constant.js');
+import mongoose from 'mongoose'
+import constant from '../utils/constant'
 
 mongoose.Promise = global.Promise;
 global.mongoose = mongoose
@@ -8,7 +8,7 @@ function connect() {
     mongoose.connect(constant.dbUrl, {
         useMongoClient: true
     })
-    var db = mongoose.connection;
+    const db = mongoose.connection;
     db.once('open', (callback)=> {
         console.log('db connection success:');
     });

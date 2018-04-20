@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var app = require('../app');
-var debug = require('debug')('mongodb-express:server');
-var http = require('http');
-var dbConnect = require('../mongoose/dbConnect')
-var server = http.createServer(app);
-var port = normalizePort(process.env.PORT || '3222');
+const app = require('../app');
+const debug = require('debug')('mongodb-express:server');
+const http = require('http');
+const dbConnect = require('../mongoose/dbConnect')
+const server = http.createServer(app);
+const port = normalizePort(process.env.PORT || '3222');
 
 dbConnect.connect();
 

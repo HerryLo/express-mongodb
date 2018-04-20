@@ -1,6 +1,6 @@
-const fs = require('fs');
-const request = require('request');
-const path = require('path');
+import fs from 'fs'
+import request from 'request'
+import path from 'path'
 
 /**
  * 抓取图片

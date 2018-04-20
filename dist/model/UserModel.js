@@ -1,40 +1,89 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var _regenerator = require('babel-runtime/regenerator');
 
-/* 模式 */
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Schema = _mongoose2.default.Schema;
 var UserSchema = new Schema({
     user: String,
     password: String,
     time: String
 });
 
-/* 查找 */
-UserSchema.statics.findUser = function (data) {
-    var _this = this;
+UserSchema.statics = {
+    /* 查找 */
+    findUser: function () {
+        var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(data) {
+            var result;
+            return _regenerator2.default.wrap(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            _context.next = 2;
+                            return this.find(data);
 
-    return new Promise(function (resolve, reject) {
-        _this.find(data, function (err, result) {
-            if (err) reject(err);
-            resolve(result);
-        });
-    });
+                        case 2:
+                            result = _context.sent;
+                            return _context.abrupt('return', result);
+
+                        case 4:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, _callee, this);
+        }));
+
+        function findUser(_x) {
+            return _ref.apply(this, arguments);
+        }
+
+        return findUser;
+    }(),
+
+    /* 创建用户 */
+    createUser: function () {
+        var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
+            var result;
+            return _regenerator2.default.wrap(function _callee2$(_context2) {
+                while (1) {
+                    switch (_context2.prev = _context2.next) {
+                        case 0:
+                            _context2.next = 2;
+                            return this.create(data);
+
+                        case 2:
+                            result = _context2.sent;
+                            return _context2.abrupt('return', result);
+
+                        case 4:
+                        case 'end':
+                            return _context2.stop();
+                    }
+                }
+            }, _callee2, this);
+        }));
+
+        function createUser() {
+            return _ref2.apply(this, arguments);
+        }
+
+        return createUser;
+    }()
 };
 
-/* 创建用户 */
-UserSchema.statics.createUser = function (data) {
-    var _this2 = this;
-
-    return new Promise(function (resolve, reject) {
-        _this2.create(data, function (err, result) {
-            if (err) reject(err);
-            resolve(result);
-        });
-    });
-};
-
-var UserModel = mongoose.model('user', UserSchema);
+var UserModel = _mongoose2.default.model('user', UserSchema);
 
 module.exports = UserModel;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9tb2RlbC9Vc2VyTW9kZWwuanMiXSwibmFtZXMiOlsibW9uZ29vc2UiLCJyZXF1aXJlIiwiU2NoZW1hIiwiVXNlclNjaGVtYSIsInVzZXIiLCJTdHJpbmciLCJwYXNzd29yZCIsInRpbWUiLCJzdGF0aWNzIiwiZmluZFVzZXIiLCJkYXRhIiwiUHJvbWlzZSIsInJlc29sdmUiLCJyZWplY3QiLCJmaW5kIiwiZXJyIiwicmVzdWx0IiwiY3JlYXRlVXNlciIsImNyZWF0ZSIsIlVzZXJNb2RlbCIsIm1vZGVsIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFJQSxXQUFXQyxRQUFRLFVBQVIsQ0FBZjtBQUNBLElBQUlDLFNBQVNGLFNBQVNFLE1BQXRCOztBQUVBO0FBQ0EsSUFBSUMsYUFBYSxJQUFJRCxNQUFKLENBQVc7QUFDeEJFLFVBQU1DLE1BRGtCO0FBRXhCQyxjQUFVRCxNQUZjO0FBR3hCRSxVQUFNRjtBQUhrQixDQUFYLENBQWpCOztBQU1BO0FBQ0FGLFdBQVdLLE9BQVgsQ0FBbUJDLFFBQW5CLEdBQThCLFVBQVVDLElBQVYsRUFBZ0I7QUFBQTs7QUFDMUMsV0FBTyxJQUFJQyxPQUFKLENBQVksVUFBQ0MsT0FBRCxFQUFVQyxNQUFWLEVBQXFCO0FBQ3BDLGNBQUtDLElBQUwsQ0FBVUosSUFBVixFQUFnQixVQUFVSyxHQUFWLEVBQWVDLE1BQWYsRUFBdUI7QUFDbkMsZ0JBQUlELEdBQUosRUFBU0YsT0FBT0UsR0FBUDtBQUNUSCxvQkFBUUksTUFBUjtBQUNILFNBSEQ7QUFJSCxLQUxNLENBQVA7QUFNSCxDQVBEOztBQVNBO0FBQ0FiLFdBQVdLLE9BQVgsQ0FBbUJTLFVBQW5CLEdBQWdDLFVBQVVQLElBQVYsRUFBZ0I7QUFBQTs7QUFDNUMsV0FBTyxJQUFJQyxPQUFKLENBQVksVUFBQ0MsT0FBRCxFQUFVQyxNQUFWLEVBQXFCO0FBQ3BDLGVBQUtLLE1BQUwsQ0FBWVIsSUFBWixFQUFrQixVQUFVSyxHQUFWLEVBQWVDLE1BQWYsRUFBdUI7QUFDckMsZ0JBQUlELEdBQUosRUFBU0YsT0FBT0UsR0FBUDtBQUNUSCxvQkFBUUksTUFBUjtBQUNILFNBSEQ7QUFJSCxLQUxNLENBQVA7QUFNSCxDQVBEOztBQVVBLElBQUlHLFlBQVluQixTQUFTb0IsS0FBVCxDQUFlLE1BQWYsRUFBdUJqQixVQUF2QixDQUFoQjs7QUFFQWtCLE9BQU9DLE9BQVAsR0FBaUJILFNBQWpCIiwiZmlsZSI6IlVzZXJNb2RlbC5qcyIsInNvdXJjZXNDb250ZW50IjpbInZhciBtb25nb29zZSA9IHJlcXVpcmUoJ21vbmdvb3NlJyk7XG52YXIgU2NoZW1hID0gbW9uZ29vc2UuU2NoZW1hO1xuXG4vKiDmqKHlvI8gKi9cbnZhciBVc2VyU2NoZW1hID0gbmV3IFNjaGVtYSh7XG4gICAgdXNlcjogU3RyaW5nLFxuICAgIHBhc3N3b3JkOiBTdHJpbmcsXG4gICAgdGltZTogU3RyaW5nXG59KVxuXG4vKiDmn6Xmib4gKi9cblVzZXJTY2hlbWEuc3RhdGljcy5maW5kVXNlciA9IGZ1bmN0aW9uIChkYXRhKSB7XG4gICAgcmV0dXJuIG5ldyBQcm9taXNlKChyZXNvbHZlLCByZWplY3QpID0+IHtcbiAgICAgICAgdGhpcy5maW5kKGRhdGEsIGZ1bmN0aW9uIChlcnIsIHJlc3VsdCkge1xuICAgICAgICAgICAgaWYgKGVycikgcmVqZWN0KGVycik7XG4gICAgICAgICAgICByZXNvbHZlKHJlc3VsdCk7XG4gICAgICAgIH0pXG4gICAgfSlcbn1cblxuLyog5Yib5bu655So5oi3ICovXG5Vc2VyU2NoZW1hLnN0YXRpY3MuY3JlYXRlVXNlciA9IGZ1bmN0aW9uIChkYXRhKSB7XG4gICAgcmV0dXJuIG5ldyBQcm9taXNlKChyZXNvbHZlLCByZWplY3QpID0+IHtcbiAgICAgICAgdGhpcy5jcmVhdGUoZGF0YSwgZnVuY3Rpb24gKGVyciwgcmVzdWx0KSB7XG4gICAgICAgICAgICBpZiAoZXJyKSByZWplY3QoZXJyKTtcbiAgICAgICAgICAgIHJlc29sdmUocmVzdWx0KTtcbiAgICAgICAgfSlcbiAgICB9KVxufVxuXG5cbnZhciBVc2VyTW9kZWwgPSBtb25nb29zZS5tb2RlbCgndXNlcicsIFVzZXJTY2hlbWEpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IFVzZXJNb2RlbFxuXG4iXX0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9tb2RlbC9Vc2VyTW9kZWwuanMiXSwibmFtZXMiOlsiU2NoZW1hIiwiVXNlclNjaGVtYSIsInVzZXIiLCJTdHJpbmciLCJwYXNzd29yZCIsInRpbWUiLCJzdGF0aWNzIiwiZmluZFVzZXIiLCJkYXRhIiwiZmluZCIsInJlc3VsdCIsImNyZWF0ZVVzZXIiLCJjcmVhdGUiLCJVc2VyTW9kZWwiLCJtb2RlbCIsIm1vZHVsZSIsImV4cG9ydHMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQTs7Ozs7O0FBRUEsSUFBTUEsU0FBUyxtQkFBU0EsTUFBeEI7QUFDQSxJQUFNQyxhQUFhLElBQUlELE1BQUosQ0FBVztBQUMxQkUsVUFBTUMsTUFEb0I7QUFFMUJDLGNBQVVELE1BRmdCO0FBRzFCRSxVQUFNRjtBQUhvQixDQUFYLENBQW5COztBQU1BRixXQUFXSyxPQUFYLEdBQXFCO0FBQ2pCO0FBQ01DLFlBRlc7QUFBQSw2R0FFRkMsSUFGRTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLG1DQUdRLEtBQUtDLElBQUwsQ0FBVUQsSUFBVixDQUhSOztBQUFBO0FBR1BFLGtDQUhPO0FBQUEsNkRBSU5BLE1BSk07O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7O0FBQUE7QUFBQTtBQUFBOztBQUFBO0FBQUE7O0FBTWpCO0FBQ01DLGNBUFc7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLG1DQVFRLEtBQUtDLE1BQUwsQ0FBWUosSUFBWixDQVJSOztBQUFBO0FBUVBFLGtDQVJPO0FBQUEsOERBU05BLE1BVE07O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7O0FBQUE7QUFBQTtBQUFBOztBQUFBO0FBQUE7QUFBQSxDQUFyQjs7QUFjQSxJQUFNRyxZQUFZLG1CQUFTQyxLQUFULENBQWUsTUFBZixFQUF1QmIsVUFBdkIsQ0FBbEI7O0FBRUFjLE9BQU9DLE9BQVAsR0FBaUJILFNBQWpCIiwiZmlsZSI6IlVzZXJNb2RlbC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb25nb29zZSBmcm9tICdtb25nb29zZSc7XG5cbmNvbnN0IFNjaGVtYSA9IG1vbmdvb3NlLlNjaGVtYTtcbmNvbnN0IFVzZXJTY2hlbWEgPSBuZXcgU2NoZW1hKHtcbiAgICB1c2VyOiBTdHJpbmcsXG4gICAgcGFzc3dvcmQ6IFN0cmluZyxcbiAgICB0aW1lOiBTdHJpbmdcbn0pXG5cblVzZXJTY2hlbWEuc3RhdGljcyA9IHtcbiAgICAvKiDmn6Xmib4gKi9cbiAgICBhc3luYyBmaW5kVXNlcihkYXRhKSB7XG4gICAgICAgIGNvbnN0IHJlc3VsdCA9IGF3YWl0IHRoaXMuZmluZChkYXRhKTtcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICB9LFxuICAgIC8qIOWIm+W7uueUqOaItyAqL1xuICAgIGFzeW5jIGNyZWF0ZVVzZXIoKXtcbiAgICAgICAgY29uc3QgcmVzdWx0ID0gYXdhaXQgdGhpcy5jcmVhdGUoZGF0YSk7XG4gICAgICAgIHJldHVybiByZXN1bHQ7XG4gICAgfVxuXG59XG5cbmNvbnN0IFVzZXJNb2RlbCA9IG1vbmdvb3NlLm1vZGVsKCd1c2VyJywgVXNlclNjaGVtYSk7XG5cbm1vZHVsZS5leHBvcnRzID0gVXNlck1vZGVsXG5cbiJdfQ==

@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "babelWatch": "babel src -d dist -w -s inline --ignore node_modules,dist &",
-    "dev": "supervisor ./dist/bin/www &"
+    "dev": "supervisor ./dist/bin/www",
+    "babel": "babel src -d dist -w -s inline --plugins=transform-runtime",
+    "watch": "npm run babel"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "supervisor": "^0.12.0"
   }

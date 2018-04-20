@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+import user from './user'
+import api from './api'
+import express from 'express'
 
-/* GET home page. */
-router.get('/', (req, res, next)=> {
-  res.render('index', { title: 'Express' });
-});
+const router = express.Router();
 
-module.exports = router;
+export default (app) => {
+  app.use('/user', user);
+  app.use('/api', api);
+}
