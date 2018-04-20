@@ -14,6 +14,8 @@ $ npm install //安装依赖
 
 $ mongod --dbpath D:/MongpDB/data //开启本地MongoDB
 
+$ npm run watch //开启es6/7语法编译
+
 $ npm run dev // 开启本地服务
 ```
 
