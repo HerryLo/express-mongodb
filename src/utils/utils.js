@@ -7,13 +7,15 @@ import path from 'path'
  * @param url
  * @constructor
  */
-function GetImg(url) {
+ async function GetImg(url) {
     return new Promise((resolve, reject) => {
         request.head(url, (err, res, body) => {
             if (err) {
                 console.log(err);
             } else {
                 const filename = new Date().getTime() + url.substr(-4, 4)
+                const fspath = path.join(__dirname, './../public/');
+
                 const dir = path.join(__dirname, './../public/img/' + filename);
                 request(url).pipe(fs.createWriteStream(dir));
                 console.log('拉取成功');
@@ -24,17 +26,15 @@ function GetImg(url) {
 }
 
 /**
- * 
+ * 检查目录是否存在
  */
 function isExists(path) {
     fs.exists(path, function (exists) {
         if (exists) {
             return true;
-            console.log("文件存在")
         }
         if (!exists) {
             return false;
-            console.log("文件不存在")
         }
     })
 }

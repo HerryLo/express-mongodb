@@ -20,6 +20,8 @@ class API {
      * @param {*} next 
      */
     async artList(req, res, next) {
+        const JSTOKEN = req.session.JSTOKEN;
+        console.log(JSTOKEN);
         try {
             const result = await artListModel.findArtList({});
             if (result.length > 0) {

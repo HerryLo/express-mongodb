@@ -14,7 +14,7 @@ UserSchema.statics = {
         return result;
     },
     /* 创建用户 */
-    async createUser(){
+    async createUser(data){
         const result = await this.create(data);
         return result;
     }

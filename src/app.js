@@ -7,8 +7,12 @@ import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import session from 'express-session'
+import connectMongo from 'connect-mongo'
+import constant from './utils/constant'
 
 const app = express();
+const MongoStore = connectMongo(session);
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -18,9 +22,11 @@ app.use(cookieParser('secret'));
 app.use(session({
     name: 'JSTOKEN',
     secret: 'recommandasdasdascsfywenfkuwedniwefuwnfiw', // 建议使用 128 个字符的随机字符串
-    cookie: { maxAge: 1000*60*10 },
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new MongoStore({
+        url: constant.dbUrl
+    })
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.all('*', function (req, res, next) {

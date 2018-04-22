@@ -1,8 +1,16 @@
 
 import UserModel from '../model/UserModel'
 import { Sendformat, Desregister} from '../utils/constant'
+import crypto from 'crypto'
 
 class User {
+  constructor(){
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
+    this.encryption = this.encryption.bind(this);
+    this.Md5 = this.Md5.bind(this);
+  }
+  
   async login(req, res, next) {
     const user = req.query.user;
     const password = req.query.password;
@@ -45,18 +53,28 @@ class User {
         } else {
           const data = {
             user: user,
-            password: password,
-            time: JSON.stringify(new Date())
+            password: this.Md5(password),
+            time: new Date()
           }
           const result = await UserModel.createUser(data);
           res.send({ data: result, code: 1, desc: Desregister.success })
         }
       }
-    } catch (e) {
+    } catch (err) {
       console.log(err);
       next();
     }
   }
+
+  encryption(password){
+		const newpassword = this.Md5(this.Md5(password).substr(2, 7) + this.Md5(password));
+		return newpassword
+	}
+  Md5(password){
+		const md5 = crypto.createHash('md5');
+		return md5.update(password).digest('base64');
+  }
+  
 }
 
 module.exports = new User()
