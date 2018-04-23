@@ -63,7 +63,9 @@ class API {
         if (url) {
             utils.GetImg(url)
                 .then(function (url) {
-                    res.redirect('/img/' + url);
+                    setTimeout(()=> {
+                        res.redirect('/img/' + url);
+                    }, 500)
                 });
         } else {
             res.send({ data: "", code: 0 });

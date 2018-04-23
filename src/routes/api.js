@@ -4,6 +4,6 @@ import API from '../controller/api'
 const router = express.Router();
 
 router.get('/artList', API.artList);
-router.get('/fetchImg', API.artList);
+router.get('/fetchImg', API.fetchImg);
 
 export default router

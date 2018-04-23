@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "supervisor ./dist/bin/www",
-    "babel": "babel src -d dist -w -s inline --plugins=transform-runtime --presets=env",
+    "babel": "babel src -d dist -w -s inline --plugins=transform-runtime",
     "watch": "npm run babel"
   },
   "dependencies": {
