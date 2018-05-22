@@ -1,5 +1,7 @@
 express+mongodb学习
 
+使用express框架可能没有特别之处，但是对于入门学习是相当棒的！希望对于新手有帮助
+
 说明:
 > 使用express脚手架生成项目
 
@@ -20,5 +22,3 @@ $ npm run dev // 开启本地服务
 ```
 
 开启服务后，[http://localhost:3222](http://localhost:3222) 即可访问
-
-**为[BAN博客系统](https://github.com/HerryLo/BAM)提供接口**
