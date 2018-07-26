@@ -1,4 +1,4 @@
-### express+mongodb
+## express+mongodb
 
 使用express框架可能没有特别之处，但是对于入门学习是相当棒的！希望对于新手有帮助
 
@@ -7,11 +7,13 @@
 说明:
 > 使用express脚手架生成项目
 
-> 使用express+nodejs+mockjs+mongodb
+> 使用express框架开发，mongodb作为数据库
 
-> 个人喜欢前后端，前端负责维护view，后端接口.
+> 前后端分离，前端负责维护view，后端接口
 
-### 调试开发
+> Es6语法，webstorm配置babel支持编译
+
+## 调试开发
 ```
 $ git clone https://github.com/HerryLo/MongoDB_express.git
 
