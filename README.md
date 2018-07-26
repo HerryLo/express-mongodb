@@ -1,4 +1,4 @@
-### express+mongodb学习
+### express+mongodb
 
 使用express框架可能没有特别之处，但是对于入门学习是相当棒的！希望对于新手有帮助
 
